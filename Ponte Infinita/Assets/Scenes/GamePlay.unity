@@ -872,6 +872,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02246f58d3a56a04ab78cf71159d23e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidadePersonagem: 1
+  limiteYMaximo: -1.035
+  limiteYMinimo: -1.256
+  limiteXMaximo: 2.597
+  limiteXMinimo: -2.597
 --- !u!1 &1570369049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,11 +1115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3114900378601344983, guid: 872b01cd1a7323f4a9192be9ae7a407e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.829
+      value: -2.597
       objectReference: {fileID: 0}
     - target: {fileID: 3114900378601344983, guid: 872b01cd1a7323f4a9192be9ae7a407e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.045
+      value: -1.035
       objectReference: {fileID: 0}
     - target: {fileID: 3114900378601344983, guid: 872b01cd1a7323f4a9192be9ae7a407e, type: 3}
       propertyPath: m_LocalPosition.z

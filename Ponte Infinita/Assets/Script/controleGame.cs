@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class controleGame : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float velocidadePersonagem;
+    [Header("Configuração Limite Movimento Personagem")]
+    public float limiteYMaximo;
+    public float limiteYMinimo;
+    public float limiteXMaximo;
+    public float limiteXMinimo;
+
     void Start()
     {
         
