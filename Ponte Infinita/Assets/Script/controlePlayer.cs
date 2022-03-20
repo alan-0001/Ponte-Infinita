@@ -24,19 +24,46 @@ public class controlePlayer : MonoBehaviour
 
         rBody.velocity = new Vector2(horizontal * velocidade, vertical * velocidade);
 
-        if (Input.GetButtonDown("Fire1"))
+
+        ////////////////////////////////////////////////////////////
+
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch t = Input.GetTouch(0);
+        //    if (t.phase == TouchPhase.Moved)
+        //    {
+        //        transform.position += (Vector3)t.deltaPosition / 600;
+        //    }
+        //}
+
+        ///////////////////////////////////////////////////////////
+
+        //Para jogos de nave...
+
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch t = Input.GetTouch(0);
+        //    Vector3 pos = Camera.main.ScreenToWorldPoint(t.position);
+        //    pos.z = 0;
+        //    transform.position = pos;
+        //}
+
+        /////////////////////////////////////////////////////////////
+        if (Input.touchCount > 0)
         {
-            //rBody.velocity = new Vector2(horizontal * velocidade, vertical * velocidade);
+            Touch t = Input.GetTouch(0);
+            if (t.phase == TouchPhase.Moved)
+            {
+                if(t.deltaPosition.y > 1)
+                {
+                    transform.position = Vector3.up * 2;
+                }
 
-            rBody.velocity = Vector2.up * velocidade;
-            //rigid.velocity = Vector2.up * speed;
-        }
-
-        if (Input.GetButtonUp("Fire3"))
-        {
-            rBody.velocity = Vector2.down*velocidade;
-
-            //rigid.velocity = Vector2.up * speed;
+                if (t.deltaPosition.y < -1)
+                {
+                    transform.position = Vector3.up * -2;
+                }
+            }
         }
 
     }
