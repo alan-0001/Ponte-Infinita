@@ -17,24 +17,23 @@ public class controlePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         float velocidade = controleGame.velocidadePersonagem;
 
         rBody.velocity = new Vector2(horizontal * velocidade, vertical * velocidade);
 
-
         ////////////////////////////////////////////////////////////
 
-        //if (Input.touchCount > 0)
-        //{
-        //    Touch t = Input.GetTouch(0);
-        //    if (t.phase == TouchPhase.Moved)
-        //    {
-        //        transform.position += (Vector3)t.deltaPosition / 600;
-        //    }
-        //}
+        if (Input.touchCount > 0)
+        {
+            Touch t = Input.GetTouch(0);
+            if (t.phase == TouchPhase.Moved)
+            {
+                transform.position += (Vector3)t.deltaPosition / 500;
+            }
+        }
 
         ///////////////////////////////////////////////////////////
 
@@ -49,21 +48,41 @@ public class controlePlayer : MonoBehaviour
         //}
 
         /////////////////////////////////////////////////////////////
-        if (Input.touchCount > 0)
-        {
-            Touch t = Input.GetTouch(0);
-            if (t.phase == TouchPhase.Moved)
-            {
-                if(t.deltaPosition.y > 1)
-                {
-                    transform.position = Vector3.up * 2;
-                }
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch t = Input.GetTouch(0);
+        //    if (t.phase == TouchPhase.Moved)
+        //    {
+        //        if (t.deltaPosition.y > 0)
+        //        {
+        //            transform.position = Vector3.up * 2;
+        //        }
 
-                if (t.deltaPosition.y < -1)
-                {
-                    transform.position = Vector3.up * -2;
-                }
-            }
+        //        if (t.deltaPosition.y < -0)
+        //        {
+        //            transform.position = Vector3.up * -2;
+        //        }
+        //    }
+        //}
+
+        //VERIFICA POSIÇÃO Y DO PLAYER E AJUSTA CONFORME LIMITE DEFINIDO
+        if (transform.position.y > controleGame.limiteYMaximo)
+        {
+            transform.position = new Vector3(transform.position.x, controleGame.limiteYMaximo, 0);
+        }
+        else if (transform.position.y < controleGame.limiteYMinimo)
+        {
+            transform.position = new Vector3(transform.position.x, controleGame.limiteYMinimo, 0);
+        }
+
+        //VERIFICA POSIÇÃO X DO PLAYER E AJUSTA CONFORME LIMITE DEFINIDO
+        if (transform.position.x > controleGame.limiteXMaximo)
+        {
+            transform.position = new Vector3(controleGame.limiteXMaximo, transform.position.y, 0);
+        }
+        else if (transform.position.x < controleGame.limiteXMinimo)
+        {
+            transform.position = new Vector3(controleGame.limiteXMinimo, transform.position.y, 0);
         }
 
     }
