@@ -492,7 +492,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 3
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -711,11 +711,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2500f85bc6747d84da82e1587fffebfc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -797,6 +797,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1050632877 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3114900378601344983, guid: 872b01cd1a7323f4a9192be9ae7a407e, type: 3}
+  m_PrefabInstance: {fileID: 3114900380026731448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1105901676
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,21 +877,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02246f58d3a56a04ab78cf71159d23e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tPlayer: {fileID: 1050632877}
   velocidadePersonagem: 1
   limiteYMaximo: -1.035
   limiteYMinimo: -1.256
   limiteXMaximo: 2.597
   limiteXMinimo: -2.597
   velocidadeObjetos: -2
-  intervaloSpawnBarril: 0.5
+  intervaloSpawnBarril: 0.7
+  pontosGanhosPorBarril: 1
   prefabPonte: {fileID: 3813484617639769243, guid: 7e65c68324b4ef74cb1622bf29212c4c, type: 3}
   tamanhoPrefabPonte: 7.5
   prefabBarril: {fileID: 7939592215296972979, guid: d110088e5461afd4a8b3e0aa71e324e8, type: 3}
   posicaoXBarril: 5
   posicaoYBarril:
-  - -0.94
+  - -0.9
   - -1.1
   ordemExibicao: 0100000003000000
+  txtPontos: {fileID: 981717067}
+  Sfx: {fileID: 635938012}
+  fxPontos: {fileID: 8300000, guid: 83073a8a47bd54548acbc9339aa51636, type: 3}
 --- !u!1 &1570369049
 GameObject:
   m_ObjectHideFlags: 0

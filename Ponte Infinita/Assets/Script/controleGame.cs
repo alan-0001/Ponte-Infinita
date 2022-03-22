@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class controleGame : MonoBehaviour
 {
+    [Header("Personagem")]
+    public Transform tPlayer;
     public float velocidadePersonagem;
+
     [Header("Configuração Limite Movimento Personagem")]
     public float limiteYMaximo;
     public float limiteYMinimo;
@@ -30,6 +34,10 @@ public class controleGame : MonoBehaviour
     [Header("HUD")]
     public Text txtPontos;
     private int pontos;
+
+    [Header("fx")]
+    public AudioSource Sfx;
+    public AudioClip fxPontos;
 
     public void instanciarPonte(float posicaoX)
     {
@@ -56,5 +64,13 @@ public class controleGame : MonoBehaviour
     public void pontuar()
     {
         pontos += pontosGanhosPorBarril;
+        txtPontos.text = "PONTOS: " + pontos.ToString();
+
+        Sfx.PlayOneShot(fxPontos, 0.7f);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("gameover");
     }
 }
