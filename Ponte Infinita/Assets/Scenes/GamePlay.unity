@@ -328,7 +328,7 @@ RectTransform:
   m_Children:
   - {fileID: 981717065}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -489,9 +489,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 83073a8a47bd54548acbc9339aa51636, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.16
   m_Pitch: 3
   Loop: 0
   Mute: 0
@@ -830,7 +830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432138839
 GameObject:
@@ -885,7 +885,9 @@ MonoBehaviour:
   limiteXMinimo: -2.597
   velocidadeObjetos: -2
   intervaloSpawnBarril: 0.7
-  pontosGanhosPorBarril: 1
+  velocidadeMoeda: -2
+  intervaloSpawnMoeda: 0.8
+  pontosGanhosPorMoeda: 10
   prefabPonte: {fileID: 3813484617639769243, guid: 7e65c68324b4ef74cb1622bf29212c4c, type: 3}
   tamanhoPrefabPonte: 7.5
   prefabBarril: {fileID: 7939592215296972979, guid: d110088e5461afd4a8b3e0aa71e324e8, type: 3}
@@ -894,9 +896,14 @@ MonoBehaviour:
   - -0.9
   - -1.1
   ordemExibicao: 0100000003000000
-  txtPontos: {fileID: 981717067}
+  prefabMoeda: {fileID: 3956523455442244248, guid: 164b9819b487057489795768ced19186, type: 3}
+  posicaoXMoeda: 5
+  posicaoYMoeda:
+  - -1.145
+  ordemExibicaoMoeda: 02000000
+  txtPonto: {fileID: 981717067}
   Sfx: {fileID: 635938012}
-  fxPontos: {fileID: 8300000, guid: 83073a8a47bd54548acbc9339aa51636, type: 3}
+  fxPonto: {fileID: 8300000, guid: 83073a8a47bd54548acbc9339aa51636, type: 3}
 --- !u!1 &1570369049
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,7 +935,7 @@ Transform:
   m_LocalScale: {x: 7.679557, y: 2.798, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1570369051
 MeshFilter:
@@ -1059,7 +1066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &813856852390608324
 PrefabInstance:
@@ -1070,7 +1077,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 813856852409945984, guid: a538fc21439162b4ea288973103b1f9b, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 813856852409945984, guid: a538fc21439162b4ea288973103b1f9b, type: 3}
       propertyPath: m_LocalPosition.x

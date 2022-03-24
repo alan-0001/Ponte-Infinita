@@ -6,7 +6,7 @@ public class controleBarril : MonoBehaviour
 {
     private controleGame controleGame;
     private Rigidbody2D rBody;
-    private bool pontuado;
+    
 
     void Start()
     {
@@ -19,12 +19,5 @@ public class controleBarril : MonoBehaviour
     void Update()
     {
         rBody.velocity = new Vector2(controleGame.velocidadeObjetos, 0);
-
-        //VERIFICA SE A POSIÇÃO X DO BARRIL É MENOR QUE A DO PERSONAGEM ENTÃO CHAMA A FUNÇÃO DE PONTUAÇÃO
-        if (transform.position.x <= controleGame.tPlayer.position.x && pontuado == false)
-        {
-            controleGame.pontuar();
-            pontuado = true;
-        }
     }
 }

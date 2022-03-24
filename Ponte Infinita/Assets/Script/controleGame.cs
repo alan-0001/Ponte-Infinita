@@ -19,7 +19,9 @@ public class controleGame : MonoBehaviour
     [Header("Configuração da GamePlay ")]
     public float velocidadeObjetos;
     public float intervaloSpawnBarril;
-    public int pontosGanhosPorBarril;
+    public float velocidadeMoeda;
+    public float intervaloSpawnMoeda;
+    public int pontosGanhosPorMoeda;
 
     [Header("Configuração da Ponte")]
     public GameObject prefabPonte;
@@ -31,13 +33,19 @@ public class controleGame : MonoBehaviour
     public float[] posicaoYBarril;
     public int[] ordemExibicao;
 
+    [Header("Configuração da Moeda")]
+    public GameObject prefabMoeda;
+    public float posicaoXMoeda;
+    public float[] posicaoYMoeda;
+    public int[] ordemExibicaoMoeda;
+
     [Header("HUD")]
-    public Text txtPontos;
+    public Text txtPonto;
     private int pontos;
 
     [Header("fx")]
     public AudioSource Sfx;
-    public AudioClip fxPontos;
+    public AudioClip fxPonto;
 
     public void instanciarPonte(float posicaoX)
     {
@@ -47,9 +55,11 @@ public class controleGame : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine("spawnBarril");
+        StartCoroutine("SpawnBarril");
+        StartCoroutine("SpawnMoeda");
     }
-    IEnumerator spawnBarril()
+
+    IEnumerator SpawnBarril()
     {
         yield return new WaitForSeconds(intervaloSpawnBarril);
 
@@ -58,15 +68,29 @@ public class controleGame : MonoBehaviour
         tempBarril.transform.position = new Vector3(posicaoXBarril, posicaoYBarril[rand], 0);
         tempBarril.GetComponent<SpriteRenderer>().sortingOrder = ordemExibicao[rand];
 
-        StartCoroutine("spawnBarril");
+        StartCoroutine("SpawnBarril");
+    }
+    /// /////////////////////MOEDA////////////////////////////////////////////////
+    IEnumerator SpawnMoeda()
+    {
+        yield return new WaitForSeconds(intervaloSpawnMoeda);
+
+        GameObject tempMoeda = Instantiate(prefabMoeda);
+        int rand = Random.Range(0, 0);//vai ficar entre 0 
+        tempMoeda.transform.position = new Vector3(posicaoXMoeda, posicaoYMoeda[rand], 0);
+        tempMoeda.GetComponent<SpriteRenderer>().sortingOrder = ordemExibicaoMoeda[rand];
+        
+        
+
+        StartCoroutine("SpawnMoeda");
     }
 
-    public void pontuar()
+    public void Pontuar()
     {
-        pontos += pontosGanhosPorBarril;
-        txtPontos.text = "PONTOS: " + pontos.ToString();
+        pontos += pontosGanhosPorMoeda;
+        txtPonto.text = "PONTOS: " + pontos.ToString();
 
-        Sfx.PlayOneShot(fxPontos, 0.7f);
+        Sfx.PlayOneShot(fxPonto, 0.7f);
     }
 
     public void GameOver()

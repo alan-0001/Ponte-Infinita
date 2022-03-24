@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7447972597102004644}
   m_Layer: 0
   m_Name: barril
-  m_TagString: Untagged
+  m_TagString: barril
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
