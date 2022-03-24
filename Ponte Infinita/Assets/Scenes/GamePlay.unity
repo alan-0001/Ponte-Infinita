@@ -887,7 +887,7 @@ MonoBehaviour:
   intervaloSpawnBarril: 0.7
   velocidadeMoeda: -2
   intervaloSpawnMoeda: 0.8
-  pontosGanhosPorMoeda: 10
+  pontosGanhosPorMoeda: 1
   prefabPonte: {fileID: 3813484617639769243, guid: 7e65c68324b4ef74cb1622bf29212c4c, type: 3}
   tamanhoPrefabPonte: 7.5
   prefabBarril: {fileID: 7939592215296972979, guid: d110088e5461afd4a8b3e0aa71e324e8, type: 3}
