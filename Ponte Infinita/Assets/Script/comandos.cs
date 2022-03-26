@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class comandos : MonoBehaviour
 {
-    
+    public Text txtPontos;
+    public Text txtRecord;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        txtPontos.text = "Score : " + PlayerPrefs.GetInt("savePontos").ToString();
+        txtRecord.text = "Record : " + PlayerPrefs.GetInt("saveRecord").ToString();
+    }
+
     void Update()
     {
         

@@ -6,14 +6,12 @@ public class controlePlayer : MonoBehaviour
 {
     private controleGame controleGame;
     private Rigidbody2D rBody;
-    //private bool pontuado;
+    
 
     void Start()
     {
         controleGame = FindObjectOfType(typeof(controleGame)) as controleGame;
-
         rBody = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -91,20 +89,13 @@ public class controlePlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (transform.position.x <= controleGame.tPlayer.position.x && pontuado == false)
-        //{
-        //    controleGame.Pontuar();
-        //    pontuado = true;
-        //}
-
+        
         if (collision.gameObject.CompareTag("moeda"))
         {
             controleGame.Pontuar();
             Destroy(collision.gameObject);
             
         }
-
-
 
         if (collision.gameObject.CompareTag("barril"))
         {

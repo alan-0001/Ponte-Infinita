@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class controleGame : MonoBehaviour
 {
     [Header("Personagem")]
-    public Transform tPlayer;
+    //public Transform tPlayer;
     public float velocidadePersonagem;
 
     [Header("Configuração Limite Movimento Personagem")]
@@ -80,8 +80,6 @@ public class controleGame : MonoBehaviour
         tempMoeda.transform.position = new Vector3(posicaoXMoeda, posicaoYMoeda[rand], 0);
         tempMoeda.GetComponent<SpriteRenderer>().sortingOrder = ordemExibicaoMoeda[rand];
         
-        
-
         StartCoroutine("SpawnMoeda");
     }
 
@@ -95,6 +93,12 @@ public class controleGame : MonoBehaviour
 
     public void GameOver()
     {
+        PlayerPrefs.SetInt("savePontos", pontos);
+
+        if(pontos > PlayerPrefs.GetInt("saveRecord"))
+        {
+            PlayerPrefs.SetInt("saveRecord", pontos);
+        }
         SceneManager.LoadScene("gameover");
     }
 }
